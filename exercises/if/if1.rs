@@ -2,13 +2,19 @@
 //
 // Execute `rustlings hint if1` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 pub fn bigger(a: i32, b: i32) -> i32 {
     // Complete this function to return the bigger number!
     // Do not use:
     // - another function call
     // - additional variables
+
+    // note that this implementation will
+    // return b if equal
+    // though that does not matter as values are copied
+    match a > b {
+        true => a,
+        false => b,
+    }
 }
 
 // Don't mind this for now :)
@@ -24,5 +30,10 @@ mod tests {
     #[test]
     fn fortytwo_is_bigger_than_thirtytwo() {
         assert_eq!(42, bigger(32, 42));
+    }
+
+    #[test]
+    fn equal_numbers() {
+        assert_eq!(41, bigger(41, 41));
     }
 }
